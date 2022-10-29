@@ -148,13 +148,43 @@ To be able to find the output signals the input signals are convolved with the i
 \end{equation}
 \subsection{b)}
 \section{Question 3 Solution}
-\subsection{a)}
-\subsection{b)}
-\subsection{c)}
-\subsection{d)}
-\subsection{e)}
-\subsection{f)}
+LTI systems are characterized by ther impulse response. Therefore the output can be written as \(y[n] = x[n] - x[n-1]\).
 
+
+\subsection{a)}
+This system is very similar to derivate operation in calculus which can be expressed as    \(\lim_{\Delta t \to 0} y(t+ \Delta t) = \frac{x(t+ \Delta t) - x(t)}{\Delta t}\).
+  Moreover, it operates same as derivative in terms of detecting the edges. Therefore this equation in discrete domain familiar to derivative operation in calculus since both calculates the changes in function in a small interval and edge points.
+\subsection{b)}
+Since the system is LTI, output to arbitrary input can be calculated by convolving the input with the impulse response.This can be expressed as: \newline
+ \[y[n]= x[n] * h[n] = x[n]* \delta [n] - x[n] * \delta [n-1]= x[n]- x[n-1]\]
+\subsection{c)}
+For c the output is \( y[n]= e^{j \Omega_0 n} (1-e^{-j \Omega_0 n})\).\newline
+To calculate $|y[n]|$ we tried to express the output in the form of :
+\[y[n]=C[cos(\Omega_0 n) + jcos(\Omega_0 n)]\] where we can conclude that the magnitude of output is some C. To do that we multiplied and divided the output y[n] with \(e^{j \Omega_0 n/2}\).
+As a result we obtained:
+ \[y[n]=\frac{e^{j (\Omega_0 n+1/2)}-e^{j (\Omega_0 n-1/2)}}{e^{j (\Omega_0 n/2}}\].
+
+ Then this equation equals to : \(y[n]= e^{j \Omega_0 (n-1/2)}(e^{j \Omega_0 n/2}-e^{-j \Omega_0 n/2})\)
+
+ Using complex definitons of sine and cosine this equation yields to: \[y[n]= 2sin(\Omega_0 /2)[jcos(\Omega_0 (n-1/2))+sin(\Omega_0 (n-1/2))]\]
+
+ Thus we can conclude that $|y[n]|= 2sin(\Omega_0 /2)$
+
+\subsection{d)}
+
+For \begin{equation}
+    \begin{split}
+        \Omega_0 = 0 \quad |y[n]|&= 2sin(\Omega_0 /2)=0\\
+ \Omega_0 = \frac{2\pi}{8} \quad |y[n]|&= 2sin(\Omega_0 /8)=0.765\\
+ \Omega_0 = \frac{2\pi}{4} \quad |y[n]|&= 2sin(\Omega_0 /4)=1.41\\
+ \Omega_0 = \frac{2\pi}{2} \quad |y[n]|&= 2sin(\Omega_0 /2)=2
+    \end{split}
+\end{equation}
+This system is similar to derivativ operation. As explained in part a this outputs tell us the change in function. We can conclude that for \( \Omega_0 = 0\) the function does not change.In calculus derivate is 0. In addition for  \( \Omega_0 = \pi \) the function changes faster.
+\subsection{e)}
+
+\subsection{f)}
+Since these operation is similar to derivation it can be used to find the changes in function.In other words it may help us to detect edges in our signal. We can see from part e and part d that magnitude of function increases as the change in function increase.In addition, the point may get closer to the edges.
 \section{Question 4 Solution}
 \subsection{a)}
 \subsection{b)}
