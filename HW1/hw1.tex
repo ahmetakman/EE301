@@ -143,10 +143,49 @@ Input/output relation: \(y_6(t)= u(x(t)) \)
 To be able to find the output signals the input signals are convolved with the inputs. The outputs are obtained with the computations given below;
 \begin{equation}
     \begin{split}
-        h(t) \ast 1 = \int_{-\infty}^{\infty} \alpha^{\tau-t} u(\tau-t)  \,d\tau  
+        h(t) \ast 1 &= \int_{-\infty}^{\infty} \alpha^{t-\tau} u(t-\tau)  \,d\tau \\
+        &=   \int_{-\infty}^{t} \alpha^{t-\tau}  \,d\tau \\
+        &=  - \frac{1}{ln(\alpha)}
     \end{split}
 \end{equation}
+\begin{equation}
+    \begin{split}
+        y_2(t) &= x_2(t) \ast h(t)\\
+        &= \int_{-\infty}^{\infty} \alpha^{t-\tau} u(t-\tau) u(\tau) \,d\tau \\
+        &= \int_{0}^{\infty} \alpha^{t-\tau} u(t-\tau)  \,d\tau \\
+        &= \int_{0}^{t} \alpha^{t-\tau} \,d\tau \\
+        &= \int_{0}^{t} \alpha^{t-\tau} \,d\tau \\
+        &= \alpha^t \int_{0}^{t} \alpha^{-\tau} \,d\tau\\
+        &= \alpha^t [- \frac{\alpha^{-\tau}}{ln(\alpha)} |_0^t]\\
+        &= \frac{\alpha^t -1 }{ln(\alpha)}
+    \end{split}
+\end{equation}
+For the third input, let us investigate the two conditions seperately. 
+\begin{equation}
+    \begin{split}
+        \text{For }t \leq 1&  \\
+        &=   \int_{-\infty}^{t} \alpha^{t-\tau}  \,d\tau \\
+        &= \alpha^t [- \frac{\alpha^{-\tau}}{ln(\alpha)} |_{-\infty}^t]\\
+        &= \alpha^t \frac{-\alpha^{-t}}{ln(\alpha)}-0 \\
+        \text{So, } \frac{-1}{ln(\alpha)} &\text{ for } t \leq -1 
+    \end{split}
+\end{equation}
+\begin{equation}
+    \begin{split}
+        \text{For }t > 1&  \\
+        &=   \int_{-\infty}^{-1} \alpha^{t-\tau}  \,d\tau \\
+        &= \alpha^t [- \frac{\alpha^{-\tau}}{ln(\alpha)} |_{-\infty}^{-1}]\\
+        &= \alpha^t \frac{-\alpha}{ln(\alpha) } - 0\\
+        \text{So, } \frac{-\alpha^{t+1}}{ln(\alpha)} &\text{ for } t \leq -1 
+    \end{split}
+\end{equation}
+
+
 \subsection{b)}
+To be able to find \(y_4\) knowing the response of \(x_2\) is enough. So the result is:
+\[
+\frac{\alpha^{t+1}-1}{ln(\alpha)} - \frac{(\alpha^t)-1}{ln(\alpha)} = \frac{\alpha^t(1+\alpha)}{ln(\alpha)}    
+\]
 \section{Question 3 Solution}
 \subsection{a)}
 \subsection{b)}
@@ -156,13 +195,33 @@ To be able to find the output signals the input signals are convolved with the i
 \subsection{f)}
 
 \section{Question 4 Solution}
-\subsection{a)}
-\subsection{b)}
-\subsection{c)}
+The LTI systems are given as 
+\[
+\text{System 1: }    y_1[n] = \sum_{k = -\infty}^{n +2} \quad  \text{System 2: }    y_1[n] = \sum_{k = -\infty}^{n-2}  
+\]
 
+\subsection{a)}
+If we insert \(\delta(t)\) unit impulse to the systems we obtain their impulse responses as follows:
+\[h_1[n]=u[n+2]   \quad h_2[n]=u[n-2]\] 
+\subsection{b)}
+Both of the systems are memoryless. However only second system is causal since the future information is needed for the first system. None of these systems are stable, consider the input x[n] = 1. 
+\subsection{c)}
+The system given in this part is also LTI since its parallel parts are LTI.
 \subsubsection{i)}
+As aforementioned, the system is LTI and we can construct the responses \(y[n]\) by subtracting \(y_2[n]\) from \(y_1[n]\). The new impulse response is given as ; 
+\[
+h[n] = \begin{cases} 
+    1 & -2 \leq n \leq 1 \\
+    0 & otherwise 
+ \end{cases}    
+\]
 
 \subsubsection{ii)}
+The system can be expressed as follows 
+\[
+y[n] = \sum_{n-2}^{n+2} x[n]    
+\] 
+Since the output carries information about past and future it the system is with memory. For the same reason the system is not causal (because  of the future information). However, different from the systems it was made out of the interval of the sum is finite so the resulting system is stable. 
 \section{Question 5 Solution}
 \subsection{a)}
 In part 5, we convolved the input signal \(x[n] = sin(\frac{2\pi n}{7} )\) and impulse response \(h[n] = u[n] - u[n-L]\) to find output signal \(y[n]\) in MATLAB.
