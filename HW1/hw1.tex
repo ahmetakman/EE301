@@ -125,17 +125,77 @@ Input/output relation: \(y_6(t)= u(x(t)) \)
 \subsubsection{ii)}
 \section{Question 5 Solution}
 \subsection{a)}
+In part 5, we convolved the input signal \(x[n] = sin(\frac{2\pi n}{7} )\) and impulse response \(h[n] = u[n] - u[n-L]\) to find output signal \(y[n]\) in MATLAB.
 \subsubsection{i)}
+In this part N(signal length) was equal to 20. Then following signal was plotted.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{i.png}
+    \caption{Signal x[n]}
+    \end{figure} 
+    
 \subsubsection{ii)}
+Impulse response \(h[n]\) was created with amplitude 1 and pulse duration L. L was equal to 14 in this example.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{i2.png}
+    \caption{Impulse Response}
+    \end{figure} 
+    
 \subsubsection{iii)}
+In this part we implemented convolution operation. Since our signals are not infinity we used zero padding to be able to compute convolution. Then we obtained \(y[n]\) using for loop. Since zero padding leads to mistake on last a few values, we only plotted correct ones. Following plot shows the output of convolution operation with padding.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{convwithpadding.png}
+    \caption{Convolution with Padding}
+    \end{figure} 
+    
 \subsubsection{iv)}
+Convolution operation executed in last part can be done by conv method in MATLAB. Following graph shows the convolution results. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{i4.png}
+    \caption{Convolution Operation Using conv Method}
+    \end{figure} 
+    As indicated in figures in section iii and iv , the convolution method in MATLAB results in more acquarete results. Due to the zero padding method in part iii, results after n>N are nor correct.
 
 
 \subsection{b)}
+To observe pulse duration length(L) effect on output signal, random signal input convolved with \(h[n]\) by changing L in the \(h[n] = u[n] - u[n-L]\). L was chossen to be 2 , 15 and 25.
+Following graph shows the random signal \(x[n]\).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{b_signal.png}
+    \caption{Random Signal}
+    \end{figure} 
+
+
+The convolution result \(y[n] = x[n] * h[n]\) with L = 2 is shown in following figure.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{b_duration2.png}
+    \caption{Convolution Result with L=2}
+    \end{figure} 
+
+
+    The convolution result \(y[n] = x[n] * h[n]\) with L = 15 is shown in following figure.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 0.75\textwidth]{b_duration15.png}
+        \caption{Convolution Result with L=15}
+        \end{figure} 
+
+        
+        The convolution result \(y[n] = x[n] * h[n]\) with L = 25 is shown in following figure. 
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width = 0.75\textwidth]{b_duration25.png}
+            \caption{Convolution Result with L=25}
+            \end{figure} 
 
 
 
-
+As shown in al figures, the smoothness of graph increases as L increases. Although it gets smoother, these systems called "averaging filter" ,may lead to some loses. This filter can be used to observe a signal's trend and obtain meaningfull data.
 
 
 
