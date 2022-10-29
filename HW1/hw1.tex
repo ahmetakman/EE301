@@ -43,40 +43,70 @@ Input/output relation: \(y_1(t)= x(t)cos(2 \pi f_0 t) \)
 \\ Properties:
 
 \begin{itemize}
-    \item \textbf{Memory:} 
-    \item \textbf{Linearity:}
-    \item \textbf{Causality:}
-    \item \textbf{Time-Invariance:}
-    \item \textbf{Stability:}
+    \item \textbf{Memory:} The system is memoryless since the output is only depend on the current t value.
+    \item \textbf{Linearity:} The system is linear it can be shown as follows: \begin{equation}\begin{split}
+        \underline{input} &\Rightarrow \underline{output} \\
+        x_1(t)  & \Rightarrow x_1(t) cos(2\pi f_0 t) \\
+        a x_2(t) & \Rightarrow  a x_2(t) cos(2\pi f_0 t) \\
+        x_1(t) +  a x_2(t)  &\Rightarrow x_1(t) cos(2\pi f_0 t) + a x_2(t) cos(2\pi f_0 t)      \end{split}
+    \end{equation} 
+    So the linearity holds.
+    \item \textbf{Causality:} Since the system is memoryless it can be said that the system is causal.
+    \item \textbf{Time-Invariance:} The system is time-varying since a time shift in the input does not result in same time shift in the output. \begin{equation}
+        \begin{split}
+            Let x_2(t) &= x_1(t-t_0) \\
+            y_1(t) &= x_1(t) cos(2 \pi f_0 t) \\ 
+            y_2(t) &= x_2(t) cos(2 \pi f_0 t)\\
+            y_1(t-t_0) &=    x_1(t-t_0) cos(2 \pi f_0 (t-t_0))\\
+            \text{However  } y_2(t) & \neq y_1(t-t_0)
+        \end{split}
+    \end{equation}
+    \item \textbf{Stability:} Since \(-1 \leq cos(alpha) \leq 1\) if the x(t) is bounded the y(t) is bounded as well. So the system is stable.
 \end{itemize}
 Input/output relation: \(y_2(t)= c_1 x(t) + c_2 x^2(t) \)
 \\ Properties:
 \begin{itemize}
-    \item \textbf{Memory:} 
-    \item \textbf{Linearity:}
-    \item \textbf{Causality:}
-    \item \textbf{Time-Invariance:}
-    \item \textbf{Stability:}
+    \item \textbf{Memory:} The system is memoryless since the output is only depend on the current t value.
+    \item \textbf{Linearity:}The system is non-linear and it can be shown as follows: \begin{equation}\begin{split}
+        \underline{input} &\Rightarrow \underline{output} \\
+        x_1(t)  & \Rightarrow c_1 x_1(t) + c_2 x_1^2(t) \\
+        a x_2(t) & \Rightarrow  c_1 a x_2(t) + a^2 c_2 x_2^2(t) \\
+        x_1(t) +  a x_2(t)  & \not\Rightarrow   c_1 (x_1(t) + a x_2(t)) + c_2 (x_1^2(t) + a^2 x_2^2(t) )
+          \end{split}
+    \end{equation} 
+    \item \textbf{Causality:} Since the system is memoryless it can be said that the system is causal.
+    \item \textbf{Time-Invariance:} The system is time invariant and it can be shown as follows;
+    \item \begin{equation}
+        \begin{split}
+            \text{Let } x_2(t) &= x_1(t-t_0) \\
+            y_1(t) &= c_1 x_1(t) + c_2 x_1^2(t) \\ 
+            y_2(t) &= x_2(t) + c_2 x_2^2(t) \\
+            y_1(t-t_0) &=    c_1 x_1(t-t_0) + c_2 x_1^2(t-t_0) \\
+            \text{Then  } y_2(t) &= y_1(t-t_0)
+        \end{split}
+    \end{equation}
+    \item \textbf{Stability:} System is stable, that is if the input of \(x(t)\) is bounded output is also bounded.
 \end{itemize}
+
 
 Input/output relation: \(y_3(t)= x(t)+4 \)
 \\ Properties:
 \begin{itemize}
-    \item \textbf{Memory:} 
-    \item \textbf{Linearity:}
-    \item \textbf{Causality:}
-    \item \textbf{Time-Invariance:}
-    \item \textbf{Stability:}
+    \item \textbf{Memory:} The system is memoryless since it just shifts the input signal.
+    \item \textbf{Linearity:} Let  \(x(t)\) be equal to 0. The output is not equal to the 0. So the system is not linear.
+    \item \textbf{Causality:} Since the system is memoryless it is causal.
+    \item \textbf{Time-Invariance:} Any time shift on the input signal results in same amount of time shift on the output signal. So the system is time invariant.
+    \item \textbf{Stability:} The system is stable, as the output is just the time shifted version of the input. 
 \end{itemize}
 
 Input/output relation: \(y_4(t)= x(t/3) \)
 \\ Properties:
 \begin{itemize}
-    \item \textbf{Memory:} 
-    \item \textbf{Linearity:}
-    \item \textbf{Causality:}
-    \item \textbf{Time-Invariance:}
-    \item \textbf{Stability:}
+    \item \textbf{Memory:}  The system is with memory since it squeezes the input signal.
+    \item \textbf{Linearity:} The system is linear.
+    \item \textbf{Causality:} Since the output may depend on different time instant other than the current t the system is not causal.
+    \item \textbf{Time-Invariance:} As the input signal is squeezed the time shift in the input may not result in same amount of shift in the output.
+    \item \textbf{Stability:} The system is stable as the magnitude stays for this system always.
 \end{itemize}
 
 Input/output relation: \(y_5(t)= t x(t+5) \)
@@ -84,28 +114,38 @@ Input/output relation: \(y_5(t)= t x(t+5) \)
 
 
 \begin{itemize}
-    \item \textbf{Memory:} 
-    \item \textbf{Linearity:}
-    \item \textbf{Causality:}
-    \item \textbf{Time-Invariance:}
-    \item \textbf{Stability:}
+    \item \textbf{Memory:} The system is with memory because of the t+5 term.
+    \item \textbf{Linearity:} The system is linear because the result stays linear if we multiply the input with a constant and sum it with another input. 
+    \item \textbf{Causality:} The system is not causal because of the fact that the value of the input at t+5 time instant is used.
+    \item \textbf{Time-Invariance:} The system is time-varying. The reason can be expressed as follows: \begin{equation}
+        \begin{split}
+             x_2(t+5) &= x_1(t+t_0+5) \\
+             y_2(t) &\neq y_1(t) 
+        \end{split}
+    \end{equation}
+    \item \textbf{Stability:} System is not stable consider the case where time is at infinity.
 \end{itemize}
 
 Input/output relation: \(y_6(t)= u(x(t)) \)
 \\ Properties:
 \begin{itemize}
-    \item \textbf{Memory:} 
-    \item \textbf{Linearity:}
-    \item \textbf{Causality:}
-    \item \textbf{Time-Invariance:}
-    \item \textbf{Stability:}
+    \item \textbf{Memory:} System is memoryless since the output depend only on the current input.
+    \item \textbf{Linearity:} The system is not linear. Consider the case \(t = 0^- \and t = 0^+\)
+    \item \textbf{Causality:} Memoylessness implies the system is causal.
+    \item \textbf{Time-Invariance:} The system is time invariant. The shift in input leads same amount of shift in output.
+    \item \textbf{Stability:} The system is stable. The outputs are bounded as long as inputs are bounded.
 \end{itemize}
 
 
 
 \section{Question 2 Solution}
 \subsection{a)}
-
+To be able to find the output signals the input signals are convolved with the inputs. The outputs are obtained with the computations given below;
+\begin{equation}
+    \begin{split}
+        h(t) \ast 1 = \int_{-\infty}^{\infty} \alpha^{\tau-t} u(\tau-t)  \,d\tau  
+    \end{split}
+\end{equation}
 \subsection{b)}
 \section{Question 3 Solution}
 \subsection{a)}
