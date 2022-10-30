@@ -221,7 +221,20 @@ For \begin{equation}
 \end{equation}
 This system is similar to derivativ operation. As explained in part a this outputs tell us the change in function. We can conclude that for \( \Omega_0 = 0\) the function does not change.In calculus derivate is 0. In addition for  \( \Omega_0 = \pi \) the function changes faster.
 \subsection{e)}
-
+In this part we detected edges of the input signal \(x[n] = u[n+5] - u[n-2]\).Following figure shows the input signal.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{Input_Signal_3e.png}
+    \caption{Plot of the input signal}
+    \end{figure} 
+ 
+After that , input signal convolved with given impulse response. Following figure shows the convolution results.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 0.8\textwidth]{edge_plot.png}
+        \caption{Plot of the edges}
+        \end{figure} 
+As mentioned before, this operation is similar to derivative in calculus. As a result it shows the changes in function,in other words the edges. As seen in figure it detects where the changes occur.
 \subsection{f)}
 Since these operation is similar to derivation it can be used to find the changes in function.In other words it may help us to detect edges in our signal. We can see from part e and part d that magnitude of function increases as the change in function increase.In addition, the point may get closer to the edges.
 \section{Question 4 Solution}
@@ -259,7 +272,7 @@ In part 5, we convolved the input signal \(x[n] = sin(\frac{2\pi n}{7} )\) and i
 In this part N(signal length) was equal to 20. Then following signal was plotted.
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.75\textwidth]{i.png}
+    \includegraphics[width = 0.7\textwidth]{i.png}
     \caption{Signal x[n]}
     \end{figure} 
     
@@ -267,7 +280,7 @@ In this part N(signal length) was equal to 20. Then following signal was plotted
 Impulse response \(h[n]\) was created with amplitude 1 and pulse duration L. L was equal to 14 in this example.
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.75\textwidth]{i2.png}
+    \includegraphics[width = 0.7\textwidth]{i2.png}
     \caption{Impulse Response}
     \end{figure} 
     
@@ -275,7 +288,7 @@ Impulse response \(h[n]\) was created with amplitude 1 and pulse duration L. L w
 In this part we implemented convolution operation. Since our signals are not infinity we used zero padding to be able to compute convolution. Then we obtained \(y[n]\) using for loop. Since zero padding leads to mistake on last a few values, we only plotted correct ones. Following plot shows the output of convolution operation with padding.
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.75\textwidth]{convwithpadding.png}
+    \includegraphics[width = 1\textwidth]{convwithpadding.png}
     \caption{Convolution with Padding}
     \end{figure} 
     
@@ -283,7 +296,7 @@ In this part we implemented convolution operation. Since our signals are not inf
 Convolution operation executed in last part can be done by conv method in MATLAB. Following graph shows the convolution results. 
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.75\textwidth]{i4.png}
+    \includegraphics[width = 1\textwidth]{i4.png}
     \caption{Convolution Operation Using conv Method}
     \end{figure} 
     As indicated in figures in section iii and iv , the convolution method in MATLAB results in more acquarete results. Due to the zero padding method in part iii, results after n>N are nor correct.
@@ -310,7 +323,7 @@ The convolution result \(y[n] = x[n] * h[n]\) with L = 2 is shown in following f
     The convolution result \(y[n] = x[n] * h[n]\) with L = 15 is shown in following figure.
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 0.75\textwidth]{b_duration15.png}
+        \includegraphics[width = 0.7\textwidth]{b_duration15.png}
         \caption{Convolution Result with L=15}
         \end{figure} 
 
@@ -318,7 +331,7 @@ The convolution result \(y[n] = x[n] * h[n]\) with L = 2 is shown in following f
         The convolution result \(y[n] = x[n] * h[n]\) with L = 25 is shown in following figure. 
         \begin{figure}[H]
             \centering
-            \includegraphics[width = 0.75\textwidth]{b_duration25.png}
+            \includegraphics[width = 0.7\textwidth]{b_duration25.png}
             \caption{Convolution Result with L=25}
             \end{figure} 
 
